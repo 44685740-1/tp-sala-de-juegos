@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+</head>
+
+<body>
+	<div class="main">
+		<input type="checkbox" id="chk" aria-hidden="true">
+
+		<div class="signup">
+			<label for="chk" aria-hidden="true">Registrarse</label>
+			<input type="email" #emailRegister name="email" placeholder="Email" required="">
+			<input type="password" #passwordRegister name="pswd" placeholder="Password" required="">
+			<button (click)="register(emailRegister.value, passwordRegister.value)">Registrarse</button>
+		</div>
+
+		<div class="login">
+			<label for="chk" aria-hidden="true">Entrar</label>
+			<input type="email" #emailLogin name="email" placeholder="Email" required="">
+			<input type="password" #passwordLogin name="pswd" placeholder="Password" required="">
+			<button (click)="login(emailLogin.value, passwordLogin.value)">Entrar</button>
+		</div>
+	</div>
+</body>
+
+</html>

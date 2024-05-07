@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "tp-sala-de-juegos-ahuitz": {
+      "hosting": {
+        "sala-de-juegos-fire": [
+          "tp-sala-de-juegos-ahuitz"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "tp-sala-de-juegos-ahuitz"
+  }
+}
