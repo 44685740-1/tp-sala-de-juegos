@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild} from '@angular/core';
 import { AuthService } from '../../services/auth.service';
-
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -9,9 +8,13 @@ import { AuthService } from '../../services/auth.service';
   styleUrl: './login.component.css'
 })
 export default class LoginComponent {
-  constructor(private authService : AuthService) {}
+  @ViewChild('emailLogin',{static:false}) emailLoginInput!: ElementRef;
+  @ViewChild('passwordLogin',{static:false}) passwordLoginInput!: ElementRef;
 
-  //public passwordTypeActivado : boolean = true;
+  public registraitionSuccesflag : boolean = true;
+  public loginSuccesflag : boolean = true;
+
+  constructor(private authService : AuthService) {}
 
   async register(email: string, password: string) {
     try {
@@ -19,6 +22,7 @@ export default class LoginComponent {
       console.log('Registration successful');
     } catch (error) {
       console.error('Registration error:', error);
+      this.registraitionSuccesflag = false;
     }
   }
 
@@ -28,7 +32,12 @@ export default class LoginComponent {
       console.log('Login successful');
     } catch (error) {
       console.error('Login error:', error);
+      this.loginSuccesflag = false;
     }
   }
 
+  autocompletarCampos() {
+    this.emailLoginInput.nativeElement.value = "ahuitzcaracciolo@gmail.com";
+    this.passwordLoginInput.nativeElement.value = "elgaturro";
+  }
 }

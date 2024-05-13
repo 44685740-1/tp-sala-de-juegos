@@ -9,17 +9,27 @@
 		<input type="checkbox" id="chk" aria-hidden="true">
 
 		<div class="signup">
-			<label for="chk" aria-hidden="true">Registrarse</label>
+			<label for="chk" aria-hidden="false">Registrarse</label>
 			<input type="email" #emailRegister name="email" placeholder="Email" required="">
 			<input type="password" #passwordRegister name="pswd" placeholder="Password" required="">
 			<button (click)="register(emailRegister.value, passwordRegister.value)">Registrarse</button>
+			@if(!registraitionSuccesflag) 
+			{
+				<div class="red-div">Error, revise credenciales</div>
+			}
 		</div>
 
 		<div class="login">
 			<label for="chk" aria-hidden="true">Entrar</label>
+			@if(!loginSuccesflag) 
+			{
+				<div class="red-div">Error, revise credenciales</div>
+			}
 			<input type="email" #emailLogin name="email" placeholder="Email" required="">
 			<input type="password" #passwordLogin name="pswd" placeholder="Password" required="">
 			<button (click)="login(emailLogin.value, passwordLogin.value)">Entrar</button>
+			<button (click)="autocompletarCampos()">Autocompletar</button>
+
 		</div>
 	</div>
 </body>
