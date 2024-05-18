@@ -1,0 +1,14 @@
+<div class="chat-container">
+    <div class="message-box">
+        @for (messages of messages; track messages) {
+        <span class="user">{{messages.senderMail}}:</span>
+        <span class="content"> {{ messages.contenido }}</span>
+        <span class="content"> {{ messages.fechaEnvio | date: 'HH:mm' }}</span>
+        <br><br>
+        }
+    </div>
+    <div class="input-box">
+        <input #mensaje type="text" placeholder="Escribe tu mensaje">
+        <button (click)="enviarMensaje()">Enviar</button>
+    </div>
+</div>

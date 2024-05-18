@@ -1,9 +1,10 @@
 import { Component, ElementRef, ViewChild} from '@angular/core';
 import { AuthService } from '../../services/auth.service';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators, ReactiveFormsModule, FormsModule} from '@angular/forms';
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [],
+  imports: [FormsModule,ReactiveFormsModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
@@ -11,10 +12,16 @@ export default class LoginComponent {
   @ViewChild('emailLogin',{static:false}) emailLoginInput!: ElementRef;
   @ViewChild('passwordLogin',{static:false}) passwordLoginInput!: ElementRef;
 
-  public registraitionSuccesflag : boolean = true;
-  public loginSuccesflag : boolean = true;
-
-  constructor(private authService : AuthService) {}
+  loginForm: FormGroup;
+  
+  constructor(private authService : AuthService, private fb: FormBuilder) {
+    this.loginForm = this.fb.group({
+      emailRegister: ['', [Validators.required, Validators.email]],
+      passwordRegister: ['', Validators.required],
+      emailLogin: ['', [Validators.required, Validators.email]],
+      passwordLogin: ['', Validators.required]
+    });
+  }
 
   async register(email: string, password: string) {
     try {
@@ -22,7 +29,6 @@ export default class LoginComponent {
       console.log('Registration successful');
     } catch (error) {
       console.error('Registration error:', error);
-      this.registraitionSuccesflag = false;
     }
   }
 
@@ -32,7 +38,6 @@ export default class LoginComponent {
       console.log('Login successful');
     } catch (error) {
       console.error('Login error:', error);
-      this.loginSuccesflag = false;
     }
   }
 

@@ -1,25 +1,27 @@
-#container{
-    background-color: black;
+#container {
+  background-color: black; /* Set your desired background color */
+  padding: 20px; /* Add some padding for spacing */
+  border-radius: 10px; /* Add rounded corners */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
-  .card {
-    width: 25rem;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a shadow effect */
-    margin: 0 10px;
-  }
-  
-  .card img {
-    width: 100%;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-  }
-  
-  .card-body {
-    padding: 20px;
-  }
-  
-  .card-text {
-    font-size: 16px;
-    color: #333; /* Dark text color */
-  }
+
+.card {
+  width: 25rem;
+  margin: 10px; /* Add some margin between cards */
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px; /* Add rounded corners to images */
+}
+
+.card-body {
+  padding: 10px;
+}
+
+.card-text {
+  color: #333; /* Set text color */
+}

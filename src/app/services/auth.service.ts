@@ -5,6 +5,7 @@ import { Auth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signO
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Injectable({
   providedIn: 'root'
@@ -32,6 +33,11 @@ export class AuthService {
       return userCredential.user;
     } catch (error) {
       console.error('Registration error:', error);
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Ocurrio Un Error intentando Registrar',
+      });
       throw error;
     }
   }
@@ -44,6 +50,11 @@ export class AuthService {
       return userCredential.user;
     } catch (error) {
       console.error('Login error:', error);
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Ocurrio Un Error intentando Loguearse',
+      });
       throw error;
     }
   }
@@ -52,8 +63,14 @@ export class AuthService {
     try {
       await signOut(this.authF);
       console.log('Logout successful');
+      this.router.navigate(["/home"]);
     } catch (error) {
       console.error('Logout error:', error);
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Ocurrio Un Error intentando Cerrar la Sesion',
+      });
       throw error;
     }
   }

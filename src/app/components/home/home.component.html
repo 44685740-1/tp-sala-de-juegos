@@ -1,8 +1,79 @@
-
-@if(userEmail != null) 
+@if(userEmail != null)
 {
-  <h1>Hola, {{userEmail}} !</h1>
-} @else 
+  <div class="d-flex align-items-center justify-content-center text-bg-dark p-3">
+    <h1>Hola, {{userEmail}} !</h1>
+  </div>
+} @else
 {
-  <h1>Hola</h1>
+  <div class="d-flex align-items-center justify-content-center text-bg-dark p-3">
+    <h1>Hola</h1>
+  </div>
 }
+
+<div class="d-flex align-items-center justify-content-around text-bg-dark p-3" #container>
+  <div class="card" style="width: 17rem;">
+    <img src="assets\pregunta-icon.png" class="card-img-top" alt="heyahuitzImage">
+    <div class="card-body text-center mt-3">
+      <p class="card-text">Preguntados</p>
+      <button class="btn btn-dark">Entrar</button>
+    </div>
+  </div>
+  <div class="card" style="width: 17rem;">
+    <img src="assets\juego-cartas-icon.png" class="card-img-top" alt="juegoCartas">
+    <div class="card-body text-center mt-3">
+      <p class="card-text">Juego de  Cartas</p>
+      <button class="btn btn-dark">Entrar</button>
+    </div>
+  </div>
+  <div class="card" style="width: 17rem;">
+    <img src="assets\juego-del-ahorcado-icon.png" class="card-img-top" alt="juego-del-ahorcado-icon">
+    <div class="card-body text-center mt-3">
+      <p class="card-text">Juego de  Ahoarcado</p>
+      <button class="btn btn-dark">Entrar</button>
+    </div>
+  </div>
+  <div class="card" style="width: 17rem;">
+    <img src="assets\pong-icon.png" class="card-img-top" alt="juego-pong">
+    <div class="card-body text-center mt-3">
+      <p class="card-text">Juego Pong</p>
+      <button class="btn btn-dark">Entrar</button>
+    </div>
+  </div>
+</div>
+
+<div class="text-bg-dark p-3">
+
+</div>
+
+<div class="d-flex align-items-center justify-content-around text-bg-dark p-3" #container>
+  <div class="card" style="width: 17rem;">
+    <img src="assets\chat-icon.png" class="card-img-top" alt="chat-icon">
+    <div class="card-body text-center mt-3">
+      <p class="card-text">Chat</p>
+      <button routerLink="chat" class="btn btn-dark">Entrar</button>
+    </div>
+  </div>
+  <div class="card" style="width: 17rem;">
+    <img src="assets\encuesta-icon.png" class="card-img-top" alt="encuesta-icon">
+    <div class="card-body text-center mt-3">
+      <p class="card-text">Encuesta</p>
+      <button class="btn btn-dark">Entrar</button>
+    </div>
+  </div>
+  <div class="card" style="width: 17rem;">
+    <img src="assets\puntaje-icon.png" class="card-img-top" alt="puntaje-icon">
+    <div class="card-body text-center mt-3">
+      <p class="card-text">Puntaje</p>
+      <button class="btn btn-dark">Entrar</button>
+    </div>
+  </div>
+  <div class="card" style="width: 17rem;">
+    <img src="assets\lista-usuarios-icom.png" class="card-img-top" alt="lista-usuarios-icom">
+    <div class="card-body text-center mt-3">
+      <p class="card-text">Lista de Usuarios</p>
+      <button class="btn btn-dark">Entrar</button>
+    </div>
+  </div>
+</div>
+
+<router-outlet></router-outlet>

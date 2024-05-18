@@ -7,29 +7,56 @@
 <body>
 	<div class="main">
 		<input type="checkbox" id="chk" aria-hidden="true">
-
+		
 		<div class="signup">
-			<label for="chk" aria-hidden="false">Registrarse</label>
-			<input type="email" #emailRegister name="email" placeholder="Email" required="">
-			<input type="password" #passwordRegister name="pswd" placeholder="Password" required="">
-			<button (click)="register(emailRegister.value, passwordRegister.value)">Registrarse</button>
-			@if(!registraitionSuccesflag) 
-			{
-				<div class="red-div">Error, revise credenciales</div>
-			}
+			<form [formGroup]="loginForm">
+				<label for="chk" aria-hidden="false">Registrarse</label>
+				<input formControlName = "emailRegister" type="email" #emailRegister name="email" placeholder="Email" required="">
+				@if(loginForm.get('emailRegister'); as aux) {
+					@if(aux.invalid && (aux.dirty || aux.touched)) 
+					{
+					  <div class="alert hide alert-danger" role="alert">
+						{{aux.hasError("required") ? "Campo Obligatorio" : "Correo invalido"}}
+					  </div>
+					}
+				}
+				<input formControlName = "passwordRegister" type="password" #passwordRegister name="pswd" placeholder="Password" required="">
+				@if(loginForm.get('passwordRegister'); as aux) {
+					@if(aux.invalid && (aux.dirty || aux.touched)) 
+					{
+					  <div class="alert hide alert-danger" role="alert">
+						Campo Obligatorio
+					  </div>
+					}
+				}
+				<button (click)="register(emailRegister.value, passwordRegister.value)">Registrarse</button>
+			</form>
 		</div>
 
 		<div class="login">
-			<label for="chk" aria-hidden="true">Entrar</label>
-			@if(!loginSuccesflag) 
-			{
-				<div class="red-div">Error, revise credenciales</div>
-			}
-			<input type="email" #emailLogin name="email" placeholder="Email" required="">
-			<input type="password" #passwordLogin name="pswd" placeholder="Password" required="">
-			<button (click)="login(emailLogin.value, passwordLogin.value)">Entrar</button>
-			<button (click)="autocompletarCampos()">Autocompletar</button>
-
+			<form [formGroup]="loginForm">
+				<label for="chk" aria-hidden="true">Entrar</label>
+				<input formControlName = "emailLogin" type="email" #emailLogin name="email" placeholder="Email" required="">
+				@if(loginForm.get('emailLogin'); as aux) {
+					@if(aux.invalid && (aux.dirty || aux.touched)) 
+					{
+					  <div class="alert hide alert-danger" role="alert">
+						{{aux.hasError("required") ? "Campo Obligatorio" : "Correo invalido"}}
+					  </div>
+					}
+				}
+				<input formControlName = "passwordLogin" type="password" #passwordLogin name="pswd" placeholder="Password" required="">
+				@if(loginForm.get('passwordLogin'); as aux) {
+					@if(aux.invalid && (aux.dirty || aux.touched)) 
+					{
+					  <div class="alert hide alert-danger" role="alert">
+						Campo Obligatorio
+					  </div>
+					}
+				}
+				<button (click)="login(emailLogin.value, passwordLogin.value)">Entrar</button>
+				<button (click)="autocompletarCampos()">Autocompletar</button>
+			</form>
 		</div>
 	</div>
 </body>
