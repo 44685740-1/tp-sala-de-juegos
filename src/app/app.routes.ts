@@ -6,6 +6,7 @@ import ErrorComponent from './components/error/error.component';
 import QuienSoyComponent from './components/quien-soy/quien-soy.component';
 import ChatComponent  from './components/chat/chat.component';
 import AhorcadoComponent from './components/ahorcado/ahorcado.component';
+import PreguntadosComponent from './components/preguntados/preguntados.component';
 import { authGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
@@ -13,6 +14,11 @@ export const routes: Routes = [
     {
         path: 'home',
         loadComponent: () => import('./components/home/home.component'),
+    },
+    {
+        path: 'home/preguntados',
+        loadComponent: () => import('./components/preguntados/preguntados.component'),
+        canActivate:[authGuard]
     },
     {
         path: 'home/chat',

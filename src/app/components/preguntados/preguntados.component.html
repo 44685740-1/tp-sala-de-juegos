@@ -1,0 +1,38 @@
+<div class="text-bg-dark p-3">
+    <div class="d-flex align-items-center justify-content-center text-bg-dark p-3 mb-2">
+        <h1>Preguntados</h1>
+    </div>
+
+    <div>
+        <div class="trivia-container">
+            @if(question)
+            {
+            <div>
+                <h3>{{ question.question }}</h3>
+                <ul>
+                    @for(answer of answers; track answers)
+                    {
+                    <li>
+                        <button class="btnAnwers btn" [ngStyle]="getButtonStyle(answer)" (click)="selectAnswer(answer)">
+                            {{ answer }}
+                        </button>
+                    </li>
+                    }
+                </ul>
+            </div>
+            }
+        </div>
+    </div>
+</div>
+
+<div class="d-flex align-items-center justify-content-center text-bg-dark p-3">
+    @for (live of [].constructor(lives); track lives) {
+        <a>
+            <img src="assets\heart-real-icon.png" alt="heart-icon" width="70" height="70" class="d-inline-block align-text-top">
+        </a>
+    }
+</div>
+
+<div class="d-flex align-items-center justify-content-center text-bg-dark p-3"> 
+    <h1>Puntaje : {{score}}</h1>
+</div>
