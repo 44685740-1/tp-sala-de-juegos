@@ -1,0 +1,36 @@
+.pong-game-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #000;
+  }
+  
+  canvas {
+    border: 2px solid #fff;
+  }
+
+  .scoreboard {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #fff;
+  }
+
+  .start-game-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #8a42f5;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    color:  #fff;
+  }
+
+  .start-game-btn:hover {
+    background-color: #ccc;
+    color: #000;
+  }

@@ -1,0 +1,18 @@
+.card-game {
+    text-align: center;
+    background-color:  #003300;
+    color: #fff;
+    margin: auto;
+  }
+  
+  .controls {
+    margin-top: 20px;
+  }
+  
+  .controls button {
+    margin: 15px;
+  }
+
+  .body {
+    background-color:  #003300;
+  }

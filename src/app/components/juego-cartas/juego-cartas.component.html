@@ -1,0 +1,31 @@
+<div class="card-game">
+    @if(currentCard)
+    {
+    <h1>Adivina la Siguiente Carta</h1>
+    <div>
+        <img [src]="currentCard.image" alt="Current Card">
+        <div class="controls">
+            <button (click)="guess(true)" class="btn btn-primary btn-lg">Mayor</button>
+            <button (click)="guess(false)" class="btn btn-primary btn-lg">Menor</button>
+        </div>
+        @if(message == "Correcto!") 
+        {
+            <h1 class="text-white">{{ message }}</h1>
+        } @else 
+        {
+            <h1 class="text-danger">{{ message }}</h1>
+        }
+        <div>
+            @for (vida of [].constructor(vidas); track vidas) {
+                <a>
+                    <img src="assets\heart-icon-color.png" alt="heart-icon" width="70" height="70" class="d-inline-block align-text-center">
+                </a>
+            }
+        </div>
+        <h1>Puntaje: {{ score }}</h1>
+    </div>
+    }
+    <br>
+</div>
+
+

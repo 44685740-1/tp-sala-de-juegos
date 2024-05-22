@@ -71,12 +71,14 @@ export default class PreguntadosComponent implements OnInit {
           title: 'Te quedaste sin Vidas!',
           text: `Puntaje final ${this.score}, Quieres Jugar Otra Vez?`,
           showCancelButton: true,
-          confirmButtonText: 'Yes',
+          confirmButtonText: 'Si',
           cancelButtonText: 'No',
         }).then((result) => {
           if (result.isConfirmed) {
+            this.score = 0;
             this.resetGame();
           } else {
+            this.score = 0;
             this.router.navigate(["/home"]);
           }
         });
