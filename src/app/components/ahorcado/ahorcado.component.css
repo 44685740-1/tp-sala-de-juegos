@@ -1,0 +1,35 @@
+
+.hangman-container {
+    text-align: center;
+    background-color:  #000;
+    color: #fff;
+    margin: auto;
+    
+}
+
+.hangman-container img {
+    max-width: 100%; /* Make images responsive */
+    height: auto; /* Keep the aspect ratio */
+    margin-bottom: 20px; /* Space below the images */
+}
+
+.hangman-container h1 {
+    margin-bottom: 20px; /* Space below the heading */
+}
+
+.hangman-container button {
+    margin: 5px; /* Space between buttons */
+}
+
+.hangman-container .btn-dark {
+    background-color: #444; /* Darker background for buttons */
+    border: none; /* Remove border */
+    padding: 10px 20px; /* Padding inside buttons */
+    color: white; /* Text color */
+    font-size: 1em; /* Font size */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+.hangman-container .btn-dark:hover {
+    background-color: #555; /* Slightly lighter on hover */
+}

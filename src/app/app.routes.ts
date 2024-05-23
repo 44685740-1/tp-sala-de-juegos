@@ -24,6 +24,11 @@ export const routes: Routes = [
         canActivate:[authGuard]
     },
     {
+        path: 'home/ahorcado',
+        loadComponent: () => import('./components/ahorcado/ahorcado.component'),
+        canActivate:[authGuard]
+    },
+    {
         path: 'home/pong',
         loadComponent: () => import('./components/pong-game/pong-game.component'),
         canActivate:[authGuard]

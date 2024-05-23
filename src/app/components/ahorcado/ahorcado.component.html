@@ -1,1 +1,60 @@
-<p>ahorcado works!</p>
+<div class="hangman-container">
+    <h1 class="d-flex align-items-center justify-content-center text-white">Ahorcado</h1>
+    <div class="d-flex align-items-center justify-content-center">
+        @switch (wrongGuesses) {
+            @case (0) {
+                <img src="assets\ahorcado-inicio.png" alt="ahorcado-inicio">
+            }
+            @case (1) {
+                <img src="assets\ahorcado-cabeza.png" alt="ahorcado-cabeza">
+            }
+            @case (2) {
+                <img src="assets\ahorcado-cuerpo.png" alt="ahorcado-cuerpo">
+            }
+            @case (3) {
+                <img src="assets\ahorcado-brazo-izquierdo.png" alt="ahorcado-brazo-izquierda">
+            }
+            @case (4) {
+                <img src="assets\ahorcado-brazo-derecho.png" alt="ahorcado-brazo-derecha">
+            }
+            @case (5) {
+                <img src="assets\ahorcado-pierna-izquierda.png" alt="ahorcado-pierna-izquierda">
+            }
+            @case (6) {
+                <img src="assets\ahorcado-muerto.png" alt="ahorcado-muerto">
+            }
+        }
+    </div>
+    <h1 class="d-flex align-items-center justify-content-center text-white">{{ maskedWord }}</h1>
+    <div class="d-flex align-items-center justify-content-center">
+        @for (letra of letrasUno; track letrasUno) {
+            <button (click)="guessLetter(letra)" class="btn btn-dark">
+                {{ letra }} 
+            </button>
+        }
+    </div>
+    <div class="d-flex align-items-center justify-content-center">
+        @for (letra of letrasDos; track letrasDos) {
+            <button (click)="guessLetter(letra)" class="btn btn-dark">
+                {{ letra }} 
+            </button>
+        }
+    </div>
+    @if(gameOver) 
+    {
+        <div class="d-flex align-items-center justify-content-center">
+            @if(gameWon) 
+            {
+                <h1 class="text-success">Ganaste !!</h1>
+
+            } 
+            @if(!gameWon)
+            {
+                <h1 class="text-danger">Perdiste !! <br> La palabra era {{ palabra }}</h1>
+            }
+        </div>
+        <div class="d-flex align-items-center justify-content-center">
+            <button  (click)="startGame()" class="btn btn-secondary btn-lg" >Jugar Otra vez</button>
+        </div>
+    }
+</div>
